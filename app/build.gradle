@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.infullmobile.toolkit'
+android {
+
+    defaultConfig {
+        applicationId "com.infullmobile.toolkitdemo"
+    }
+
+    signingConfigs {
+        release project.createSigningConfigFromFile('app/keystore/dev.properties')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+        }
+    }
+    productFlavors {
+        development
+        production
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23+'
+    compile project(':foolibrary')
+}
