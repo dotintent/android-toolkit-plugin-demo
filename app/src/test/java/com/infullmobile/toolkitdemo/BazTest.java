@@ -10,6 +10,8 @@ import org.junit.Test;
  */
 public class BazTest {
 
+    public static final String invalidConstantName= "a";
+
     @Test
     public void testGetBaz() throws Exception {
         Assert.assertEquals("baz", Baz.getBaz());
